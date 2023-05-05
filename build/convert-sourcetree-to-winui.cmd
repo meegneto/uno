@@ -15,8 +15,8 @@ pushd ..\src\Uno.WinUIRevert
 dotnet run %myvar%\..
 popd
 
-set UnoDisableNet8Mobile=true
-set UnoDisableNet8=true
+set UnoDisableNetCurrentMobile=true
+set UnoDisableNetCurrent=true
 msbuild Uno.UI.Build.csproj "/p:CombinedConfiguration=Release|AnyCPU;BUILD_BUILDNUMBER=test_test_8888" /m /t:RunAPISyncTool /v:m /bl
 
 pause
