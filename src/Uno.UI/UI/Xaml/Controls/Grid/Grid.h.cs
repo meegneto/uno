@@ -304,7 +304,5 @@ namespace Windows.UI.Xaml.Controls
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private double XcpAbsF(double rValue) => Math.Abs(rValue);
-
-		private UIElementCollection GetUnsortedChildren() => Children;
 	}
 }
