@@ -31,7 +31,9 @@ using AppKit;
 using Uno.UI;
 #endif
 
+#if !WINDOWS_UWP
 [assembly: System.Reflection.Metadata.MetadataUpdateHandler(typeof(Uno.UI.RemoteControl.HotReload.ClientHotReloadProcessor))]
+#endif
 
 namespace Uno.UI.RemoteControl.HotReload
 {
