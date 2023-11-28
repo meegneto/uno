@@ -16,11 +16,11 @@ stages:
       vmImage: '$(linuxVMImage)'
 
 - stage: convert_tree
-  displayName: WinUI Tree Conversion
+  displayName: UWP Tree Conversion
   dependsOn:
     - Setup
   jobs:
-  - template: .azure-devops-winui-convert.yml
+  - template: .azure-devops-uwp-convert.yml
     parameters:
       poolName: '$(windowsScaledPool)'
 
