@@ -4,7 +4,7 @@ uid: Uno.Development.AppStructure
 
 # Solution Structure
 
-This guide briefly explains the structure of an app created with either the `dotnet new` [unoapp template](xref:Uno.GetStarted.dotnet-new) or the [Uno Platform Template Wizard](xref:Uno.GettingStarted.UsingWizard). It's particularly aimed at developers who have not worked with cross-platform codebases before. 
+This guide briefly explains the structure of an app created with either the [`dotnet new unoapp` template](xref:Uno.GetStarted.dotnet-new) or the [Uno Platform Template Wizard](xref:Uno.GettingStarted.UsingWizard). It's particularly aimed at developers who have not worked with cross-platform codebases before. 
 
 ## The project files in an Uno Platform app
 

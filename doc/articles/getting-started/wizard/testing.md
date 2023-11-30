@@ -9,7 +9,7 @@ uid: Uno.GettingStarted.UsingWizard.Themes
 
     The project also comes with [FluentAssertions](https://fluentassertions.com) pre-installed.
 
-    This is included in the recommeded preset, but not in the blank preset.
+    This is included in the recommended preset, but not in the blank preset.
 
     ```
     dotnet new unoapp -tests unit
@@ -20,7 +20,7 @@ uid: Uno.GettingStarted.UsingWizard.Themes
 
     To learn more about UI Testing in Uno Platform apps, read [this](xref:Uno.UITest.GetStarted).
 
-    This is included in the recommeded preset, but not in the blank preset.
+    This is included in the recommended preset, but not in the blank preset.
 
     ```
     dotnet new unoapp -tests ui

@@ -10,7 +10,7 @@ Both presets include the following platforms: Windows, Android, iOS, MacCatalyst
 
 - #### Blank
 
-    The *Blank* preset option represents the simplest Uno Platform application. Think of this as the "Hello World" of Uno Platform applications. The application has a single page, with a single `TextBlock`. The only additional package reference it includes is to [Uno.Resizetizer](xref:Uno.Resizetizer.GettingStarted), which is used to make it easy define the application icon and splashscreen for all target platforms.
+    The *Blank* preset option represents the simplest Uno Platform application. Think of this as the "Hello World" of Uno Platform applications. The application has a single page, with a single `TextBlock`. The only additional package reference it includes is to [Uno.Resizetizer](xref:Uno.Resizetizer.GettingStarted), which is used to make it easy define the application icon and splash screen for all target platforms.
 
     Create an application with the *Blank* preset:
     ```
