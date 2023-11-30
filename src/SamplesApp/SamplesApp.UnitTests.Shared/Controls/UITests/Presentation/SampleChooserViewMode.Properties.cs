@@ -391,7 +391,7 @@ namespace SampleControl.Presentation
 				_useFluentStyles = value;
 				if (_useFluentStyles)
 				{
-					_fluentResources = _fluentResources ?? new XamlControlsResources() 
+					_fluentResources = _fluentResources ?? new XamlControlsResources()
 					{
 #if !WINAPPSDK
 						ControlsResourcesVersion = ControlsResourcesVersion.Version2
