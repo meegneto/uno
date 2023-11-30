@@ -37,7 +37,7 @@ jobs:
       msbuildLocationMethod: version
       msbuildVersion: latest
       msbuildArchitecture: x86
-      msbuildArguments: /t:Publish /r /m /v:m /p:Configuration=Release /p:TargetFramework=net7.0-windows10.0.19041.0 /p:Platform=x64 /detailedsummary /bl:$(build.artifactstagingdirectory)/build-wasdk.binlog
+      msbuildArguments: /r /t:Publish /m /v:m /p:Configuration=Release /p:TargetFramework=net7.0-windows10.0.19041.0 /p:Platform=x64 /detailedsummary /bl:$(build.artifactstagingdirectory)/build-wasdk.binlog
       clean: false
       restoreNugetPackages: false
       logProjectEvents: false
