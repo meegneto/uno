@@ -6,7 +6,7 @@ uid: Uno.GettingStarted.UsingWizard.Startup
 
 The `unoapp` template comes with two preset options: *Blank* and *Recommended* (*Default* in Visual Studio Wizard). These represent two different sets of pre-configured values for the options that follow. The *Blank* option is the most minimal template, while the *Recommended* option comes with a few more features pre-configured.
 
-Both presets include the following platforms: Windows, Android, iOS, MacCatalyst, GTK, WASM
+Both presets include the following platforms: Windows, Android, iOS, MacCatalyst, GTK, Wasm.
 
 - #### Blank
 
@@ -16,7 +16,7 @@ Both presets include the following platforms: Windows, Android, iOS, MacCatalyst
     ```
     dotnet new unoapp -preset blank
     ```
-    The *Blank* preset can be augmented by clicking `Customize` in the Visual Studio Wizard, or by specifying additional command line parameters to the `dotnet new` command. For example this command will create a *Blank* application with the Uno.Toolkit.
+    The *Blank* preset can be augmented by clicking `Customize` in the Visual Studio Wizard, or by specifying additional command line parameters to the `dotnet new` command. For example, this command will create a *Blank* application with the Uno.Toolkit.
 
     ```
     dotnet new unoapp -preset blank -toolkit
@@ -35,7 +35,7 @@ Both presets include the following platforms: Windows, Android, iOS, MacCatalyst
     dotnet new unoapp -preset recommended
     ```
 
-    The *Recommended* preset can be augmented by clicking `Customize` in the Visual Studio Wizard, or by specifying additional command line parameters to the `dotnet new` command. For example this command will create a *Blank* application with out the Uno.Toolkit.
+    The *Recommended* preset can be augmented by clicking `Customize` in the Visual Studio Wizard, or by specifying additional command line parameters to the `dotnet new` command. For example, this command will create a *Blank* application with out the Uno.Toolkit.
 
     ```
     dotnet new unoapp -preset blank -toolkit false

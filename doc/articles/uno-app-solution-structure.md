@@ -18,7 +18,8 @@ After creating a new solution called `MyApp`, it will contain the following proj
 
     The head projects are the projects that generate the executable binaries for the platform. They are also the projects that are used to debug the application on the platform. Right-click on the project in the **Solution Explorer** tool window and select `Set as Startup Project` to debug the application on the platform.
 
-2. A `MyApp.csproj` file. This is the **Application Class Library** for the application and contains most of the code for the application. 
+2. The `MyApp.csproj` file is the **Application Class Library** for the application and contains most of the code for the application. 
+3. The `MyApp.Shared.csproj` is a placeholder project used to edit the `AppHead.xaml` and `base.props` files. These files are automatically included in all other heads. This project is present to support the `.Windows` head and WinAppSDK. This project is not intended to be built and produces no output.
     The **Application Class Library** will contain most of the classes, XAML files, [String resources](features/working-with-strings.md) and assets ([images](features/working-with-assets.md), [fonts](features/custom-fonts.md) etc) for the application.
 
 
@@ -27,7 +28,7 @@ After creating a new solution called `MyApp`, it will contain the following proj
 
 ## Handling dependencies
 
-Dependencies (ie NuGet Package References) should be added to the  **Application Class Library**. This ensures that the dependencies are available to all the heads of the application. Dependencies that are only required for a specific platform they can be added to the head project for that platform. Alternatively, they can be conditionally included in the **Application Class Library** by setting an appropriate `Condition` on the `PackageReference` element in the project file.
+Dependencies (ie NuGet Package References) should be added to the  **Application Class Library**. This ensures that the dependencies are available to all the heads of the application. Platform-specific dependencies can be conditionally included in the **Application Class Library** by setting an appropriate `Condition` on the `PackageReference` element in the project file.
 
 ## Further information
 

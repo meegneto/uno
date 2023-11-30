@@ -29,7 +29,7 @@ The theme in the application can be further customized with the following option
 
 ### Theme Service  
 
-Includes references to the Uno.Extensions.Core.WinUI package which includes the theme service that can be used to control the theme (Dark, Light or System) of the application. This is included by default in the recommended preset, but not in the blank preset.
+Includes references to the [Uno.Extensions.Core.WinUI](https://www.nuget.org/packages/Uno.Extensions.Core.WinUI/) package which includes the theme service that can be used to control the theme (Dark, Light or System) of the application. This is included by default in the recommended preset, but not in the blank preset.
 
 ```
 dotnet new unoapp -theme-Service

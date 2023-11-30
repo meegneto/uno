@@ -6,7 +6,7 @@ uid: Uno.GettingStarted.UsingWizard.Presentation
 This setting allows you to choose a presentation architecture.
 
 - #### None
-    Generates a project without any presentation architecture installed. This is the default for the blank preset
+    Generates a project without any presentation architecture installed. This is the default for the blank preset.
 
 - #### MVVM
     Generates a project optimized for use with the traditional MVVM architecture, using Microsoft's [MVVM Community Toolkit](https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm).
