@@ -140,7 +140,7 @@ stages:
       XamarinSDKVersionTest: '$(XamarinSDKVersion_iOS_UITests)'
 
 - stage: wasdk_tests
-  displayName: Tests - WinAppSDL
+  displayName: Tests - WinAppSDK  
   dependsOn:
     - Setup
 
