@@ -139,13 +139,13 @@ stages:
       xCodeRootTest: '$(xCodeRoot_iOS_UITests)'
       XamarinSDKVersionTest: '$(XamarinSDKVersion_iOS_UITests)'
 
-- stage: uap_tests
-  displayName: Tests - UAP
+- stage: wasdk_tests
+  displayName: Tests - WinAppSDL
   dependsOn:
     - Setup
 
   jobs:
-  - template: .azure-devops-uap.yml
+  - template: .azure-devops-wasdk.yml
     parameters:
       poolName: '$(windowsScaledPool)'
 

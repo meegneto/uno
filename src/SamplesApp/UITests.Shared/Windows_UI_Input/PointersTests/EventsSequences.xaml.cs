@@ -148,7 +148,7 @@ namespace UITests.Shared.Windows_UI_Input.PointersTests
 		private void ValidateTranslatedTapTest(object sender, RoutedEventArgs e)
 		{
 			var args = new EventSequenceValidator(_translatedTapResult);
-			var isInertialManip = _translatedTapResult.Any(arg => arg.evt == ManipulationInertiaStartingEvent);
+			var isInertialManip = _translatedTapResult.Any(arg => ReferenceEquals(arg.evt, ManipulationInertiaStartingEvent));
 			var result = false;
 			switch (PointerType)
 			{
@@ -233,7 +233,7 @@ namespace UITests.Shared.Windows_UI_Input.PointersTests
 			// Pointer pressed and released are handled by the ButtonBase
 
 			var args = new EventSequenceValidator(_translatedClickResult);
-			var isInertialManip = _translatedClickResult.Any(arg => arg.evt == ManipulationInertiaStartingEvent);
+			var isInertialManip = _translatedClickResult.Any(arg => ReferenceEquals(arg.evt, ManipulationInertiaStartingEvent));
 			var result = false;
 			switch (PointerType)
 			{
@@ -483,7 +483,9 @@ namespace UITests.Shared.Windows_UI_Input.PointersTests
 					+ $"| frame={point.FrameId}"
 					+ $"| type={e.Pointer.PointerDeviceType} "
 					+ $"| position={point.Position} "
+#if !WINAPPSDK
 					+ $"| rawPosition={point.RawPosition} "
+#endif
 					+ $"| inContact={point.IsInContact} "
 					+ $"| inRange={point.Properties.IsInRange} "
 					+ $"| primary={point.Properties.IsPrimary}"
@@ -579,7 +581,7 @@ namespace UITests.Shared.Windows_UI_Input.PointersTests
 			/// </summary>
 			public bool MaybeOne(RoutedEvent evt)
 			{
-				if (_index < _args.Count && _args[_index].evt == evt)
+				if (_index < _args.Count && ReferenceEquals(_args[_index].evt, evt))
 				{
 					++_index;
 				}

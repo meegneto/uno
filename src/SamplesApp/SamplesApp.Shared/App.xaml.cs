@@ -83,8 +83,11 @@ namespace SamplesApp
 			AssertApplicationData();
 
 			this.InitializeComponent();
+
+#if !WINAPPSDK
 			this.Suspending += OnSuspending;
 			this.Resuming += OnResuming;
+#endif
 		}
 
 		/// <summary>
@@ -122,11 +125,14 @@ namespace SamplesApp
 			}
 
 			var sw = Stopwatch.StartNew();
+
+#if !WINAPPSDK
 			var n = Microsoft.UI.Xaml.Window.Current.Dispatcher.RunIdleAsync(
 				_ =>
 				{
 					Console.WriteLine("Done loading " + sw.Elapsed);
 				});
+#endif
 
 #if DEBUG
 			if (System.Diagnostics.Debugger.IsAttached)

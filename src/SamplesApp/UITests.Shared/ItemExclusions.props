@@ -33,7 +33,7 @@
 	<Compile Remove="$(MSBuildThisFileDirectory)Windows_UI_Xaml_Controls\Repeater\**" />
 	<None Include="$(MSBuildThisFileDirectory)Windows_UI_Xaml_Controls\Repeater\**" />
 
-	  <Page Remove="$(MSBuildThisFileDirectory)Lottie\**" />
+	<Page Remove="$(MSBuildThisFileDirectory)Lottie\**" />
 	<Compile Remove="$(MSBuildThisFileDirectory)Lottie\**" />
 	<None Include="$(MSBuildThisFileDirectory)Lottie\**" />
   </ItemGroup>
