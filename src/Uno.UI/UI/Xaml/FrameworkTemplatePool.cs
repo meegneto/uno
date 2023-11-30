@@ -6,12 +6,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Linq;
+using System.Runtime.CompilerServices;
 using Uno.Diagnostics.Eventing;
 using Windows.UI.Xaml;
+using Uno.Buffers;
 using Uno.Extensions;
 using Uno.Foundation.Logging;
 using Uno.UI;
@@ -284,6 +282,56 @@ namespace Windows.UI.Xaml
 			return instances;
 		}
 
+		private Stack<object> _instancesToRecycle = new();
+
+		private void RaiseOnParentCollected(object instance)
+		{
+			var shouldEnqueue = false;
+
+			lock (_instancesToRecycle)
+			{
+				_instancesToRecycle.Push(instance);
+
+				shouldEnqueue = _instancesToRecycle.Count == 1;
+			}
+
+			if (shouldEnqueue)
+			{
+				NativeDispatcher.Main.Enqueue(Recycle);
+
+				void Recycle()
+				{
+					var array = ArrayPool<object>.Shared.Rent(32);
+
+					var count = 0;
+
+					var shouldRequeue = false;
+
+					lock (_instancesToRecycle)
+					{
+						while (_instancesToRecycle.TryPop(out var i) && count < 32)
+						{
+							array[count++] = i;
+						}
+
+						shouldRequeue = _instancesToRecycle.Count > 0;
+					}
+
+					for (var x = 0; x < count; x++)
+					{
+						array[x].SetParent(null);
+					}
+
+					ArrayPool<object>.Shared.Return(array, clearArray: true);
+
+					if (shouldRequeue)
+					{
+						NativeDispatcher.Main.Enqueue(Recycle);
+					}
+				}
+			}
+		}
+
 		/// <summary>
 		/// Manually return an unused template root to the pool.
 		/// </summary>
@@ -355,6 +403,8 @@ namespace Windows.UI.Xaml
 			}
 			else
 			{
+				InstanceTracker.Add(newParent, instance);
+
 				var index = list.FindIndex(e => ReferenceEquals(e.Control, instance));
 
 				if (index != -1)
@@ -436,6 +486,61 @@ namespace Windows.UI.Xaml
 			public TimeSpan CreationTime { get; private set; }
 
 			public View Control { get; private set; }
+		}
+
+		private static class InstanceTracker
+		{
+			private static ConditionalWeakTable<object /* parent */, TrackerCookie> _instances = new();
+
+			private static Stack<TrackerCookie> _cookiePool = new();
+
+			public static void Add(object parent, object instance)
+			{
+				lock (_cookiePool)
+				{
+					if (_cookiePool.TryPop(out var cookie))
+					{
+						cookie.Update(instance);
+
+						_instances.Add(parent, cookie);
+					}
+					else
+					{
+						_instances.Add(parent, new TrackerCookie(instance));
+					}
+				}
+			}
+
+			public static void ReturnCookie(TrackerCookie cookie)
+			{
+				lock (_cookiePool)
+				{
+					_cookiePool.Push(cookie);
+				}
+			}
+
+			public class TrackerCookie
+			{
+				private object? _instance;
+
+				public TrackerCookie(object instance)
+				{
+					_instance = instance;
+				}
+
+				~TrackerCookie()
+				{
+					Instance.RaiseOnParentCollected(_instance!);
+
+					_instance = null;
+
+					GC.ReRegisterForFinalize(this);
+
+					ReturnCookie(this);
+				}
+
+				public void Update(object instance) => _instance = instance;
+			}
 		}
 	}
 }
