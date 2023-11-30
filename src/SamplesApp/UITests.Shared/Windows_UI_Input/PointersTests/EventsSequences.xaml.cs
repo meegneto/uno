@@ -327,7 +327,7 @@ namespace UITests.Shared.Windows_UI_Input.PointersTests
 					result =
 						args.One(PointerEnteredEvent)
 						&& args.Some(PointerMovedEvent) // Could be "Maybe" but WASM UI test generates it and we want to validate it
-#if NETFX_CORE
+#if WINAPPSDK
 						&& args.One(PointerReleasedEvent)
 						&& args.Click()
 #else
@@ -353,7 +353,7 @@ namespace UITests.Shared.Windows_UI_Input.PointersTests
 					result =
 						args.One(PointerEnteredEvent)
 						&& args.MaybeSome(PointerMovedEvent)
-#if NETFX_CORE
+#if WINAPPSDK
 						&& args.One(PointerReleasedEvent)
 						&& args.Click()
 #elif __WASM__ // KNOWN ISSUE: We don't get a released if not previously pressed, but pressed are muted by the Hyperlink which is a UIElement on wasm

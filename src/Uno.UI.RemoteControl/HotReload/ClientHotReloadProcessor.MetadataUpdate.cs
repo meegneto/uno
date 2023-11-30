@@ -268,7 +268,7 @@ partial class ClientHotReloadProcessor
 			}
 
 
-#if !(WINUI || WINDOWS_UWP)
+#if !(WINUI || WINAPPSDK)
 			// Then find over updated types to find the ones that are implementing IXamlResourceDictionaryProvider
 			List<Uri> updatedDictionaries = new();
 
@@ -307,7 +307,7 @@ partial class ClientHotReloadProcessor
 		}
 	}
 
-#if !(WINUI || WINDOWS_UWP)
+#if !(WINUI || WINAPPSDK)
 	/// <summary>
 	/// Refreshes ResourceDictionary instances that have been detected as updated
 	/// </summary>

@@ -210,6 +210,7 @@ namespace SamplesApp
 		}
 #endif
 
+#if !WINAPPSDK
 		protected
 #if HAS_UNO
 			internal
@@ -234,6 +235,7 @@ namespace SamplesApp
 				}
 			}
 		}
+#endif
 
 		private void ActivateMainWindow()
 		{

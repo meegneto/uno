@@ -170,7 +170,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 
 				using var _ = new AssertionScope($"{name} [{width}x{height}]");
 
-#if !NETFX_CORE
+#if !WINAPPSDK
 				sut.ViewportMeasureSize.Width.Should().Be(width, "ViewportMeasureSize.Width");
 				sut.ViewportMeasureSize.Height.Should().Be(height, "ViewportMeasureSize.Height");
 
@@ -828,7 +828,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 
 		[TestMethod]
 		[RunsOnUIThread]
-#if !__SKIA__ && !WINDOWS_UWP
+#if !__SKIA__ && !WINAPPSDK
 		[Ignore("Pointer injection supported only on skia for now.")]
 #endif
 		public async Task When_TouchScroll_Then_NestedElementReceivePointerEvents()
@@ -913,7 +913,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_UI_Xaml_Controls
 #endif
 		public async Task When_ReversedMouseWheel_Then_ScrollInReversedDirection()
 		{
-#if WINDOWS_UWP
+#if WINAPPSDK
 			Assert.Inconclusive("Mouse pointer helper not supported on UWP.");
 #else
 			var sut = new ScrollViewer

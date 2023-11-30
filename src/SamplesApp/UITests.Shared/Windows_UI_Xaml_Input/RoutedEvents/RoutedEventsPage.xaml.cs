@@ -119,7 +119,7 @@ namespace SamplesApp.Samples.RoutedEvents
 		protected override void OnTapped(TappedRoutedEventArgs e)
 		{
 			base.OnTapped(e);
-#if !WINDOWS_UWP
+#if !WINAPPSDK
 			Console.WriteLine("Tapped!");
 #endif
 		}

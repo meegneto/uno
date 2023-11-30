@@ -19,7 +19,7 @@ using Windows.UI.Input.Preview.Injection;
 using Uno.Extensions;
 
 
-#if NETFX_CORE
+#if WINAPPSDK
 using Uno.UI.Extensions;
 #elif __IOS__
 using UIKit;

@@ -7,7 +7,7 @@ using SampleControl.Presentation;
 using Windows.Foundation;
 using Microsoft.UI.Xaml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-#if NETFX_CORE
+#if WINAPPSDK
 using Windows.Foundation.Collections;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
