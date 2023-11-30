@@ -23,7 +23,7 @@ using _View = Microsoft.UI.Xaml.DependencyObject;
 
 namespace Uno.UI.Extensions;
 
-#if WINAPPSDK
+#if WINAPPSDK || WINDOWS_UWP
 internal
 #else
 public
