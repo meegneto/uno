@@ -11,7 +11,7 @@ Uno.Extensions.Authentication currently supports these types of authentication:
 
 
 - #### None  
-    No authentication added to the application. This is the default for both blank and recommended presets.
+    No authentication is added to the application. This is the default for both blank and recommended presets.
 
     ```
     dotnet new unoapp -auth none
