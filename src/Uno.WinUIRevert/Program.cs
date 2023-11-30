@@ -92,6 +92,8 @@ namespace UnoWinUIRevert
 				Path.Combine(basePath, "src", "Uno.UI", "UI", "Xaml", "Style"),
 				Path.Combine(basePath, "src", "Uno.UI.FluentTheme.v2"),
 				Path.Combine(basePath, "src", "Uno.UI.FluentTheme.v1"),
+				Path.Combine(basePath, "src", "Uno.UI.Tests"),
+				Path.Combine(basePath, "src", "Uno.UI.RuntimeTests"),
 			};
 
 			foreach (var styleFolder in styleFolders)
