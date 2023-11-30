@@ -24,7 +24,7 @@ After creating a new solution called `MyApp`, it will contain the following proj
 
 
 > [!NOTE]
-> The `App.xaml` and `App.xaml.cs` in an Uno Platform solution template are named `AppResources.xaml` and `App.cs`, respectively. Both are automatically included as part of each head's `App.xaml` and `App.xaml.cs` in order to create a cross-platform experience. It is recommended to use `AppResources.xaml` and `App.cs` for editing the application's startup.
+> In an Uno Platform solution, the commonly known `App.xaml` and `App.xaml.cs` files are named `AppResources.xaml` and `App.cs`, respectively. Both are automatically included as part of each head's `AppHead.xaml` and `AppHead.xaml.cs` in order to create a cross-platform experience. It is recommended to use `AppResources.xaml` and `App.cs` for editing the application's startup.
 
 ## Handling dependencies
 
