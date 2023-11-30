@@ -25,7 +25,7 @@ Both presets include the following platforms: Windows, Android, iOS, MacCatalyst
 
 - #### Recommended
 
-    The *Recommended*, or *Default* as it's labeled in the Visual Studio Wizard, preset option represents a more complete Uno Platform application. It uses `Uno.Extensions` to initialize the application by creating an `IHost`, using the `IHostBuilder` pattern established by the Microsoft.Extensions libraries. The IHost provides a number of services that are useful in Uno Platform applications, including Dependency Injection, Logging, and Configuration. 
+    The **Recommended** preset option represents a more complete Uno Platform application. It uses `Uno.Extensions` to initialize the application by creating an `IHost`, using the `IHostBuilder` pattern established by the Microsoft.Extensions libraries. The IHost provides a number of services that are useful in Uno Platform applications, including Dependency Injection, Logging, and Configuration. 
 
     The *Recommended* option also includes a number of additional packages that are useful in Uno Platform applications, including `Uno.UITest`, `Uno.Extensions.Http`, `Uno.Extensions.Navigation`, `Uno.Extensions.Serialization`, and `Uno.Extensions.Logging`. 
 
